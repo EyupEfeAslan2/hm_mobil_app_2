@@ -9,6 +9,7 @@ import 'screens/class_selection_screen.dart';
 import 'screens/topic_selection_screen.dart';
 import 'screens/style_chat_screen.dart';
 import 'screens/narration_screen.dart';
+import 'screens/profession_selection_screen.dart';
 
 /// Application entry point
 ///
@@ -236,6 +237,7 @@ class AppRoutes {
   static const String topicSelection = '/topic';
   static const String styleChat = '/style';
   static const String narration = '/narration';
+  static const String professionSelection = '/profession';
 
   // Route transition configuration
   static const Duration _transitionDuration = Duration(milliseconds: 300);
@@ -261,6 +263,8 @@ class AppRoutes {
 
         case narration:
           return _buildNarrationRoute(settings);
+        case professionSelection:
+          return _buildProfessionSelectionRoute(settings);
 
         default:
           return unknownRoute(settings);
@@ -339,6 +343,22 @@ class AppRoutes {
         level: level,
         className: className,
       ),
+    );
+  }
+
+  static Route<dynamic> _buildProfessionSelectionRoute(RouteSettings settings) {
+    final args = settings.arguments as Map<String, String>?;
+    final level = args?['level'];
+    final className = args?['class'];
+
+    if (level == null || className == null) {
+      throw ArgumentError(
+        'Level and class parameters are required for profession selection',
+      );
+    }
+
+    return _createRoute(
+      ProfessionSelectionScreen(level: level, className: className),
     );
   }
 
