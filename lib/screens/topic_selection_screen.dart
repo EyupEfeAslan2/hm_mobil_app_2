@@ -146,7 +146,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: const Color(0xFFF8FAFC),
       appBar: _buildAppBar(),
       body: _buildBody(),
     );
@@ -161,13 +161,14 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
       backgroundColor: levelColor,
       foregroundColor: Colors.white,
       elevation: 0,
+      centerTitle: true,
     );
   }
 
   /// Builds app bar title with subtitle
   Widget _buildAppBarTitle() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text(
           'Konu Seçimi',
@@ -212,19 +213,17 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
 
   /// Builds main body with gradient background
   Widget _buildBody() {
-    final levelColor = _getLevelColor();
-
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [levelColor.shade50, Colors.white],
+          colors: [Color(0xFFF3E8FF), Color(0xFFFFFFFF)],
         ),
       ),
       child: Column(
         children: [
-          _buildHeaderCard(levelColor),
+          _buildHeaderCard(),
           Expanded(
             child: _filteredTopics.isEmpty
                 ? _buildEmptyState()
@@ -236,7 +235,9 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Builds header card with search functionality
-  Widget _buildHeaderCard(MaterialColor levelColor) {
+  Widget _buildHeaderCard() {
+    final levelColor = _getLevelColor();
+
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(20),
@@ -262,7 +263,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Builds header information row
-  Widget _buildHeaderInfo(MaterialColor levelColor) {
+  Widget _buildHeaderInfo(Color levelColor) {
     return Row(
       children: [
         _buildHeaderIcon(levelColor),
@@ -273,7 +274,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Builds header icon container
-  Widget _buildHeaderIcon(MaterialColor levelColor) {
+  Widget _buildHeaderIcon(Color levelColor) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -281,7 +282,11 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(
-        widget.level == 'Lise' ? Icons.school : Icons.account_balance,
+        widget.level == 'Lise'
+            ? Icons.school
+            : widget.level == 'Ortaokul'
+            ? Icons.auto_stories
+            : Icons.child_care,
         color: levelColor,
         size: 28,
       ),
@@ -418,7 +423,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   Widget _buildTopicCard(
     String topic,
     IconData topicIcon,
-    MaterialColor categoryColor,
+    Color categoryColor,
   ) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -455,16 +460,13 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Builds topic icon container with gradient
-  Widget _buildTopicIconContainer(
-    IconData topicIcon,
-    MaterialColor categoryColor,
-  ) {
+  Widget _buildTopicIconContainer(IconData topicIcon, Color categoryColor) {
     return Container(
       width: 48,
       height: 48,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [categoryColor.shade300, categoryColor.shade500],
+          colors: [categoryColor.withOpacity(0.7), categoryColor],
         ),
         borderRadius: BorderRadius.circular(12),
       ),
@@ -497,7 +499,7 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Builds arrow icon container
-  Widget _buildArrowIcon(MaterialColor categoryColor) {
+  Widget _buildArrowIcon(Color categoryColor) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -523,8 +525,14 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
   }
 
   /// Returns level-specific color
-  MaterialColor _getLevelColor() {
-    return widget.level == 'Lise' ? Colors.deepPurple : Colors.blue;
+  Color _getLevelColor() {
+    if (widget.level == 'İlkokul') {
+      return const Color(0xFFA855F7);
+    } else if (widget.level == 'Ortaokul') {
+      return const Color(0xFF8B5CF6);
+    } else {
+      return const Color(0xFF7C3AED);
+    }
   }
 
   /// Returns icon based on topic content
@@ -565,20 +573,20 @@ class _TopicSelectionScreenState extends State<TopicSelectionScreen>
     return Icons.topic;
   }
 
-  /// Returns color based on topic category
-  MaterialColor _getTopicCategoryColor(String topic) {
+  /// Returns color based on topic category - MOR PALETİ
+  Color _getTopicCategoryColor(String topic) {
     final lowerTopic = topic.toLowerCase();
 
-    if (lowerTopic.contains('matematik')) return Colors.orange;
-    if (lowerTopic.contains('fizik')) return Colors.blue;
-    if (lowerTopic.contains('kimya')) return Colors.green;
-    if (lowerTopic.contains('biyoloji')) return Colors.teal;
-    if (lowerTopic.contains('tarih')) return Colors.brown;
-    if (lowerTopic.contains('coğrafya')) return Colors.indigo;
-    if (lowerTopic.contains('edebiyat')) return Colors.purple;
-    if (lowerTopic.contains('dil')) return Colors.pink;
-    if (lowerTopic.contains('sanat')) return Colors.deepOrange;
-    if (lowerTopic.contains('felsefe')) return Colors.grey;
+    if (lowerTopic.contains('matematik')) return const Color(0xFFA855F7);
+    if (lowerTopic.contains('fizik')) return const Color(0xFF8B5CF6);
+    if (lowerTopic.contains('kimya')) return const Color(0xFF7C3AED);
+    if (lowerTopic.contains('biyoloji')) return const Color(0xFF9333EA);
+    if (lowerTopic.contains('tarih')) return const Color(0xFF6B21A8);
+    if (lowerTopic.contains('coğrafya')) return const Color(0xFFA855F7);
+    if (lowerTopic.contains('edebiyat')) return const Color(0xFF9333EA);
+    if (lowerTopic.contains('dil')) return const Color(0xFF8B5CF6);
+    if (lowerTopic.contains('sanat')) return const Color(0xFFA855F7);
+    if (lowerTopic.contains('felsefe')) return const Color(0xFF7C3AED);
 
     return _getLevelColor();
   }

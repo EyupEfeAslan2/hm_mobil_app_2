@@ -223,8 +223,9 @@ Stil:''';
     if (lowerStyle.contains('hikaye')) return Colors.purple;
     if (lowerStyle.contains('şiir')) return Colors.pink;
     if (lowerStyle.contains('bilimsel')) return Colors.blue;
-    if (lowerStyle.contains('komedi') || lowerStyle.contains('mizah'))
+    if (lowerStyle.contains('komedi') || lowerStyle.contains('mizah')) {
       return Colors.orange;
+    }
     if (lowerStyle.contains('masal')) return Colors.green;
     if (lowerStyle.contains('drama')) return Colors.red;
     return Colors.indigo;
@@ -236,8 +237,9 @@ Stil:''';
     if (lowerStyle.contains('hikaye')) return Icons.auto_stories;
     if (lowerStyle.contains('şiir')) return Icons.lyrics;
     if (lowerStyle.contains('bilimsel')) return Icons.science;
-    if (lowerStyle.contains('komedi') || lowerStyle.contains('mizah'))
+    if (lowerStyle.contains('komedi') || lowerStyle.contains('mizah')) {
       return Icons.sentiment_very_satisfied;
+    }
     if (lowerStyle.contains('masal')) return Icons.castle;
     if (lowerStyle.contains('drama')) return Icons.theater_comedy;
     return Icons.auto_awesome;

@@ -206,14 +206,14 @@ Yanıt:''';
   void _showErrorSnackBar(String error) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Row(
+        content: const Row(
           children: [
-            const Icon(Icons.error, color: Colors.white, size: 20),
-            const SizedBox(width: 8),
+            Icon(Icons.error, color: Colors.white, size: 20),
+            SizedBox(width: 8),
             Expanded(
               child: Text(
                 'Bağlantı hatası oluştu',
-                style: const TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 14),
               ),
             ),
           ],
@@ -284,9 +284,9 @@ Yanıt:''';
       ),
       child: Row(
         children: [
-          Icon(Icons.smart_toy, color: Colors.indigo, size: 20),
+          const Icon(Icons.smart_toy, color: Colors.indigo, size: 20),
           const SizedBox(width: 8),
-          Text(
+          const Text(
             'AI Asistan',
             style: TextStyle(
               fontSize: 14,
@@ -347,7 +347,7 @@ Yanıt:''';
             builder: (context, child) {
               return Transform.scale(
                 scale: _pulseAnimation.value,
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   strokeWidth: 2,
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.indigo),
                 ),

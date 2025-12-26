@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../widgets/chat_box.dart';
+import 'class_selection_screen.dart'; // Eklendi
 
 class LevelSelectionScreen extends StatelessWidget {
   const LevelSelectionScreen({super.key});
@@ -59,8 +60,8 @@ class LevelSelectionScreen extends StatelessWidget {
                               'Temel matematik ve okuma yazma becerileri',
                           icon: Icons.child_care_rounded,
                           gradient: const [
-                            Color(0xFF7C3AED),
-                            Color(0xFF6B21A8),
+                            Color(0xFFA855F7),
+                            Color(0xFF9333EA),
                           ],
                           level: 'İlkokul',
                         ),
@@ -76,8 +77,8 @@ class LevelSelectionScreen extends StatelessWidget {
                               'Orta düzey matematik, fen ve sosyal bilimler',
                           icon: Icons.auto_stories_rounded,
                           gradient: const [
+                            Color(0xFF8B5CF6),
                             Color(0xFF7C3AED),
-                            Color(0xFF6B21A8),
                           ],
                           level: 'Ortaokul',
                         ),
@@ -364,6 +365,11 @@ class LevelSelectionScreen extends StatelessWidget {
 
   /// Sınıf seçimi ekranına yönlendir
   void _navigateToClassSelection(BuildContext context, String level) {
-    Navigator.pushNamed(context, '/class', arguments: {'level': level});
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ClassSelectionScreen(level: level),
+      ),
+    );
   }
 }

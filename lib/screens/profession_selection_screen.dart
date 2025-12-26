@@ -1,6 +1,7 @@
 // lib/screens/profession_selection_screen.dart
 
 import 'package:flutter/material.dart';
+import 'topic_selection_screen.dart'; // Import ekleyin
 
 /// Professional field selection screen for 11th and 12th grade students
 ///
@@ -63,6 +64,7 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF8FAFC),
       appBar: _buildAppBar(),
       body: SafeArea(
         child: FadeTransition(opacity: _fadeAnimation, child: _buildBody()),
@@ -73,13 +75,16 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
   /// Builds app bar with back navigation and title
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      title: Text(
+      title: const Text(
         'Alan Seçimi',
-        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+        style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
+          fontSize: 20,
         ),
       ),
+      backgroundColor: const Color(0xFF7C3AED),
+      foregroundColor: Colors.white,
       centerTitle: true,
       elevation: 0,
     );
@@ -101,14 +106,11 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Theme.of(context).colorScheme.primary,
-            Theme.of(context).colorScheme.primary.withOpacity(0.8),
-          ],
+          colors: [Color(0xFF7C3AED), Color(0xFF6B21A8)],
         ),
       ),
       child: Column(
@@ -121,7 +123,8 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
           const SizedBox(height: 16),
           Text(
             '${widget.className} - Alan Seçimi',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            style: const TextStyle(
+              fontSize: 24,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -129,7 +132,8 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
           const SizedBox(height: 8),
           Text(
             'Hangi alanda çalışmak istiyorsun?',
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            style: TextStyle(
+              fontSize: 16,
               color: Colors.white.withOpacity(0.9),
             ),
             textAlign: TextAlign.center,
@@ -143,15 +147,24 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
   Widget _buildProfessionList() {
     final professions = _getProfessions();
 
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: professions.length,
-      itemBuilder: (context, index) {
-        return _buildAnimatedProfessionCard(
-          profession: professions[index],
-          index: index,
-        );
-      },
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFFF3E8FF), Color(0xFFFFFFFF)],
+        ),
+      ),
+      child: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: professions.length,
+        itemBuilder: (context, index) {
+          return _buildAnimatedProfessionCard(
+            profession: professions[index],
+            index: index,
+          );
+        },
+      ),
     );
   }
 
@@ -186,9 +199,7 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: isSelected
-              ? Theme.of(context).colorScheme.primary
-              : Colors.transparent,
+          color: isSelected ? const Color(0xFF7C3AED) : Colors.transparent,
           width: 2,
         ),
       ),
@@ -200,11 +211,8 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: isSelected
-                ? LinearGradient(
-                    colors: [
-                      Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                      Theme.of(context).colorScheme.primary.withOpacity(0.05),
-                    ],
+                ? const LinearGradient(
+                    colors: [Color(0xFFF3E8FF), Color(0xFFFFFFFF)],
                   )
                 : null,
           ),
@@ -228,7 +236,7 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
       height: 64,
       decoration: BoxDecoration(
         color: isSelected
-            ? Theme.of(context).colorScheme.primary
+            ? const Color(0xFF7C3AED)
             : profession.color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
       ),
@@ -247,16 +255,16 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
       children: [
         Text(
           profession.title,
-          style: Theme.of(
-            context,
-          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF1E293B),
+          ),
         ),
         const SizedBox(height: 4),
         Text(
           profession.description,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
         ),
         const SizedBox(height: 8),
         _buildSubjectChips(profession.subjects),
@@ -272,7 +280,7 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
       children: subjects.map((subject) {
         return Chip(
           label: Text(subject, style: const TextStyle(fontSize: 12)),
-          backgroundColor: Colors.grey[200],
+          backgroundColor: const Color(0xFFF3E8FF),
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           visualDensity: VisualDensity.compact,
@@ -286,8 +294,8 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
     return Container(
       width: 32,
       height: 32,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
+      decoration: const BoxDecoration(
+        color: Color(0xFF7C3AED),
         shape: BoxShape.circle,
       ),
       child: const Icon(Icons.check, color: Colors.white, size: 20),
@@ -315,11 +323,15 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
               ? _navigateToTopicSelection
               : null,
           style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF7C3AED),
+            foregroundColor: Colors.white,
             minimumSize: const Size(double.infinity, 54),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
             elevation: _selectedProfession != null ? 4 : 0,
+            disabledBackgroundColor: Colors.grey[300],
+            disabledForegroundColor: Colors.grey[500],
           ),
           child: _isNavigating
               ? const SizedBox(
@@ -330,18 +342,18 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                   ),
                 )
-              : Row(
+              : const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Devam Et',
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.white,
+                      style: TextStyle(
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    const Icon(Icons.arrow_forward, color: Colors.white),
+                    SizedBox(width: 8),
+                    Icon(Icons.arrow_forward, size: 20),
                   ],
                 ),
         ),
@@ -356,9 +368,6 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
     setState(() {
       _selectedProfession = professionId;
     });
-
-    // Haptic feedback
-    // HapticFeedback.mediumImpact(); // Uncomment if you want haptic feedback
   }
 
   /// Navigates to topic selection with selected profession
@@ -369,14 +378,16 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
       _isNavigating = true;
     });
 
-    Navigator.pushNamed(
+    // Direkt TopicSelectionScreen'e git (Named route yerine)
+    Navigator.push(
       context,
-      '/topic',
-      arguments: {
-        'level': widget.level,
-        'class': widget.className,
-        'profession': _selectedProfession,
-      },
+      MaterialPageRoute(
+        builder: (context) => TopicSelectionScreen(
+          level: widget.level,
+          className: widget.className,
+          profession: _selectedProfession,
+        ),
+      ),
     ).then((_) {
       if (mounted) {
         setState(() {
@@ -389,28 +400,28 @@ class _ProfessionSelectionScreenState extends State<ProfessionSelectionScreen>
   /// Returns list of available professions
   List<ProfessionData> _getProfessions() {
     return [
-      ProfessionData(
+      const ProfessionData(
         id: 'sayisal',
         title: 'Sayısal',
         description: 'Matematik, Fizik, Kimya, Biyoloji ağırlıklı',
         icon: Icons.calculate_outlined,
-        color: Colors.blue,
+        color: Color(0xFFA855F7),
         subjects: ['Matematik', 'Fizik', 'Kimya', 'Biyoloji'],
       ),
-      ProfessionData(
+      const ProfessionData(
         id: 'sozel',
         title: 'Sözel',
         description: 'Edebiyat, Tarih, Coğrafya ağırlıklı',
         icon: Icons.menu_book_outlined,
-        color: Colors.orange,
+        color: Color(0xFF8B5CF6),
         subjects: ['Edebiyat', 'Tarih', 'Coğrafya', 'Felsefe'],
       ),
-      ProfessionData(
+      const ProfessionData(
         id: 'esit_agirlik',
         title: 'Eşit Ağırlık',
         description: 'Dengeli bir ders dağılımı',
         icon: Icons.balance_outlined,
-        color: Colors.green,
+        color: Color(0xFF7C3AED),
         subjects: ['Matematik', 'Edebiyat', 'Tarih', 'Coğrafya'],
       ),
     ];

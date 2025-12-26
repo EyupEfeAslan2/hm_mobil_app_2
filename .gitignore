@@ -428,4 +428,4 @@ FodyWeavers.xsd
 *.msp
 # API Keys
 apisecure.env
-*.env
+apisecure.env

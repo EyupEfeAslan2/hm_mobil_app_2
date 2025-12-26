@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285264164268",
+    "project_id": "hm-mobil-2026-acbc7",
+    "storage_bucket": "hm-mobil-2026-acbc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285264164268:android:f8c074f1f416e62fd4b609",
+        "android_client_info": {
+          "package_name": "com.example.hm_integral_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfZGkchaCT2CUaiVHHwYjM_XdwXHx5Hc8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
