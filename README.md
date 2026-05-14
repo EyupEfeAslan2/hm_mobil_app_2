@@ -21,7 +21,14 @@ The result is a transparent, auditable, and B2B-ready corporate credit memo.
 * **Scale Ready:** Architecture supports both deep single-entity analysis and concurrent batch processing.
 
 ---
+## Business & Market Strategy
 
+* **Product Definition:** An enterprise-grade decision support system that orchestrates AI agents to simulate a corporate credit committee.
+* **One-Sentence Value Proposition:** CoreMine Risk slashes the B2B credit underwriting process from 3 weeks to 15 seconds while replacing compliance-risky "black-box" AI with auditable, explainable consensus.
+* **Target Audience (B2B):** Tier 1 & Tier 2 Banks, Institutional Lenders, and Corporate Risk Departments.
+* **The Market Gap:** Current financial AI tools either summarize PDFs or predict stock prices. They fail in institutional lending because they lack **Explainability (XAI)**. A bank cannot legally deny a $50M loan by saying "The AI said no." 
+* **Our Competitive Advantage (Moat):** We don't just prompt an LLM. We utilize a *Multi-Agent Dialectical Architecture*. By forcing a Risk Auditor and a Client Advocate to debate, we generate the mathematical and logical justification (XAI) required by financial compliance laws.
+* 
 ## Key Features
 
 * **Multi-Agent Consensus:** Decisions are forged through deliberate conflict between a Risk Auditor, a Client Advocate, and a Compliance Agent.
