@@ -1,16 +1,25 @@
-# hm_integral_app
+### System Verification & Validation (V-Model)
 
-A new Flutter project.
+```mermaid
+graph TD
+    %% Sol Taraf: Verification (Aşağı İniş)
+    A[Requirements Analysis: Corporate Credit Logic] --> B[System Design: Go Gateway + Python AI]
+    B --> C[Architecture: Multi-Agent XAI]
+    C --> D[Module Design: Defensive UI Bindings]
+    D --> E((Implementation & Coding))
 
-## Getting Started
+    %% Sağ Taraf: Validation (Yukarı Çıkış)
+    E --> F[Unit Testing: Fallback UI / JSON Parsing]
+    F --> G[Integration Testing: Go <-> Python Data Flow]
+    G --> H[System Testing: Batch Processing & Caching]
+    H --> I[Acceptance: Explainable Credit Decision]
 
-This project is a starting point for a Flutter application.
+    %% V-Model Çapraz Bağlantıları (Kesik Çizgiler)
+    A -.->|Validation| I
+    B -.->|Verification| H
+    C -.->|Verification| G
+    D -.->|Verification| F
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    classDef default fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#f8fafc;
+    classDef implementation fill:#059669,stroke:#10b981,stroke-width:3px,color:#fff;
+    class E implementation;
