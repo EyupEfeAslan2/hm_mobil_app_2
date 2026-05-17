@@ -6,13 +6,13 @@
 
 # CoreMine Risk
 
-### 🏛️ AI-Powered Corporate Credit Underwriting Terminal
+### AI-Powered Corporate Credit Underwriting Terminal
 
 *Replacing black-box financial decisions with a dialectical Multi-Agent XAI Consensus Engine.*
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/%F0%9F%9A%80_Live_Demo-Online-10B981?style=for-the-badge)](https://btk-hackathon2026-elitedevs.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/%F0%9F%9A%80_Live_Demo-Online-10B981?style=for-the-badge)](https://btk-hackaton-2026-elitedevs.netlify.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-E8B931?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![BTK Hackathon](https://img.shields.io/badge/BTK_Hackathon-2026-FF6B6B?style=for-the-badge)](https://www.btk.gov.tr/)
 
@@ -33,7 +33,7 @@
 
 </div>
 
-## 🎯 The Problem
+## The Problem
 
 > A bank **cannot legally** deny a $50M loan by saying *"The AI said no."*
 
@@ -41,7 +41,7 @@ Current financial AI tools either summarize PDFs or predict stock prices. They c
 
 Regulatory frameworks like **Basel III**, **SR 11-7**, and **EU AI Act** demand that every automated credit decision comes with a complete, auditable justification trail. Black-box models are not just risky — they are **non-compliant**.
 
-## 💡 The Solution
+##  The Solution
 
 **CoreMine Risk** is an enterprise-grade decision support system that orchestrates specialized AI agents to simulate a **Corporate Credit Committee**. Instead of a single opaque model, it forces distinct AI personas into adversarial debate — producing the exact mathematical and logical justification required by financial compliance law.
 
@@ -72,34 +72,34 @@ Regulatory frameworks like **Basel III**, **SR 11-7**, and **EU AI Act** demand 
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
 <table>
 <tr>
 <td align="center" width="33%">
-<h3>🤖 Multi-Agent Dialectics</h3>
+<h3> Multi-Agent Dialectics</h3>
 <p>Decisions forged through deliberate conflict between a <strong>Risk Auditor</strong>, <strong>Client Advocate</strong>, <strong>Data Agent</strong>, and <strong>Compliance Agent</strong>.</p>
 </td>
 <td align="center" width="33%">
-<h3>🔬 What-If Simulation</h3>
+<h3> What-If Simulation</h3>
 <p>Real-time stress-testing of custom loan amounts. The system dynamically recalculates risk based on requested debt capacity.</p>
 </td>
 <td align="center" width="33%">
-<h3>📊 Batch Processing</h3>
+<h3> Batch Processing</h3>
 <p>Concurrent screening of multiple corporate entities for rapid portfolio-level risk assessment.</p>
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
-<h3>📋 Audit-Ready Export</h3>
+<h3> Audit-Ready Export</h3>
 <p>Native PDF credit memo and CSV dataset generation for legacy banking systems and compliance archives.</p>
 </td>
 <td align="center" width="33%">
-<h3>⚡ High-Speed Caching</h3>
+<h3> High-Speed Caching</h3>
 <p>SQLite-backed middleware with 24-hour TTL ensures sub-millisecond retrieval of historical analyses.</p>
 </td>
 <td align="center" width="33%">
-<h3>🔔 Enterprise Webhooks</h3>
+<h3> Enterprise Webhooks</h3>
 <p>Real-time decision broadcasting via Slack and ERP system integrations.</p>
 </td>
 </tr>
@@ -113,28 +113,28 @@ CoreMine Risk is built on a **distributed microservices architecture** with thre
 
 ```mermaid
 graph TB
-    subgraph Client["🖥️ Client Layer"]
+    subgraph Client[" Client Layer"]
         UI["React 19 Dashboard<br/><i>Vite + Tailwind CSS</i>"]
     end
 
-    subgraph Gateway["⚡ API Gateway Layer"]
+    subgraph Gateway[" API Gateway Layer"]
         GO["Go Fiber Gateway<br/><i>CORS · Rate Limiting · Routing</i>"]
         CACHE["SQLite Cache<br/><i>24h TTL · Thread-safe</i>"]
     end
 
-    subgraph AI["🧠 AI Worker Layer"]
+    subgraph AI[" AI Worker Layer"]
         FAST["FastAPI Server"]
         ORCH["Orchestrator Engine"]
         
         subgraph Agents["Multi-Agent Committee"]
-            DA["📊 Data Agent<br/><i>Financial Telemetry</i>"]
-            AA["📈 Analysis Agent<br/><i>Technical Analysis</i>"]
-            CA["⚖️ Compliance Agent<br/><i>Regulatory Review</i>"]
-            RA["🛡️ Risk Agent<br/><i>Credit Decision</i>"]
+            DA[" Data Agent<br/><i>Financial Telemetry</i>"]
+            AA[" Analysis Agent<br/><i>Technical Analysis</i>"]
+            CA[" Compliance Agent<br/><i>Regulatory Review</i>"]
+            RA[" Risk Agent<br/><i>Credit Decision</i>"]
         end
     end
 
-    subgraph External["🌐 External Services"]
+    subgraph External[" External Services"]
         YAHOO["Yahoo Finance API"]
         GEMINI["Google Gemini LLM"]
         NEWS["News & Sentiment Feeds"]
@@ -162,13 +162,13 @@ The multi-agent system follows a **sequential dialectical process**, where each 
 
 ```mermaid
 sequenceDiagram
-    participant U as 🧑‍💼 Risk Officer
-    participant G as ⚡ Go Gateway
-    participant O as 🎯 Orchestrator
-    participant D as 📊 Data Agent
-    participant A as 📈 Analysis Agent
-    participant C as ⚖️ Compliance Agent
-    participant R as 🛡️ Risk Agent
+    participant U as  Risk Officer
+    participant G as  Go Gateway
+    participant O as  Orchestrator
+    participant D as  Data Agent
+    participant A as  Analysis Agent
+    participant C as  Compliance Agent
+    participant R as  Risk Agent
 
     U->>G: POST /api/analyze {symbols, amount}
     G->>G: Check SQLite Cache (24h TTL)
@@ -192,12 +192,12 @@ sequenceDiagram
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 coremine-risk/
 │
-├── 🧠 ai-worker/                    # Python AI Microservice
+├──  ai-worker/                    # Python AI Microservice
 │   ├── agents/
 │   │   ├── data_agent.py            # Financial data collection & enrichment
 │   │   ├── analysis_agent.py        # Technical & fundamental analysis
@@ -215,7 +215,7 @@ coremine-risk/
 │   ├── Dockerfile
 │   └── requirements.txt
 │
-├── ⚡ go-gateway/                    # Go API Gateway
+├──  go-gateway/                    # Go API Gateway
 │   ├── cmd/api/
 │   │   └── main.go                  # HTTP server bootstrap
 │   ├── internal/
@@ -226,7 +226,7 @@ coremine-risk/
 │   ├── Dockerfile
 │   └── go.mod
 │
-├── 🎨 frontend/                     # React Dashboard
+├──  frontend/                     # React Dashboard
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── Dashboard.jsx        # Main analysis dashboard
@@ -250,7 +250,7 @@ coremine-risk/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -282,7 +282,7 @@ docker compose up --build
 ### Option 2: Manual Setup
 
 <details>
-<summary><strong>🧠 AI Worker (Python)</strong></summary>
+<summary><strong> AI Worker (Python)</strong></summary>
 
 ```bash
 cd ai-worker
@@ -305,7 +305,7 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 </details>
 
 <details>
-<summary><strong>⚡ Go Gateway</strong></summary>
+<summary><strong> Go Gateway</strong></summary>
 
 ```bash
 cd go-gateway
@@ -320,7 +320,7 @@ go run cmd/api/main.go
 </details>
 
 <details>
-<summary><strong>🎨 Frontend</strong></summary>
+<summary><strong> Frontend</strong></summary>
 
 ```bash
 cd frontend
@@ -338,14 +338,14 @@ npm run dev
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| 🎨 **Dashboard** | `http://localhost:5173` | React UI |
-| ⚡ **API Gateway** | `http://localhost:3030` | Go API |
-| 🧠 **AI Worker** | `http://localhost:8000` | Python AI Service |
-| 📖 **API Docs** | `http://localhost:8000/docs` | Swagger UI (auto-generated) |
+|  **Dashboard** | `http://localhost:5173` | React UI |
+|  **API Gateway** | `http://localhost:3030` | Go API |
+|  **AI Worker** | `http://localhost:8000` | Python AI Service |
+|  **API Docs** | `http://localhost:8000/docs` | Swagger UI (auto-generated) |
 
 ---
 
-## 📡 API Reference
+## API Reference
 
 ### Analyze Entity
 
@@ -419,7 +419,7 @@ Returns `{"status": "ok"}` when the AI Worker is operational.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <table>
 <tr>
@@ -483,21 +483,21 @@ Returns `{"status": "ok"}` when the AI Worker is operational.
 
 ---
 
-## 📐 Engineering Methodology
+## Methodology
 
 This project follows the **V-Model** Software Development Life Cycle for maximum quality assurance:
 
 ```mermaid
 graph TD
     A["📋 Requirements Analysis<br/><i>Corporate Credit Logic</i>"] --> B["🏗️ System Design<br/><i>Go Gateway + Python AI</i>"]
-    B --> C["🧩 Architecture Design<br/><i>Multi-Agent XAI Pipeline</i>"]
-    C --> D["📐 Module Design<br/><i>Defensive UI Bindings</i>"]
-    D --> E(("⚙️ Implementation"))
+    B --> C["Architecture Design<br/><i>Multi-Agent XAI Pipeline</i>"]
+    C --> D["Module Design<br/><i>Defensive UI Bindings</i>"]
+    D --> E(("Implementation"))
 
-    E --> F["🧪 Unit Testing<br/><i>Fallback UI / JSON Parsing</i>"]
-    F --> G["🔗 Integration Testing<br/><i>Go ↔ Python Data Flow</i>"]
-    G --> H["📦 System Testing<br/><i>Batch Processing & Caching</i>"]
-    H --> I["✅ Acceptance Testing<br/><i>Explainable Credit Decision</i>"]
+    E --> F["Unit Testing<br/><i>Fallback UI / JSON Parsing</i>"]
+    F --> G["Integration Testing<br/><i>Go ↔ Python Data Flow</i>"]
+    G --> H["System Testing<br/><i>Batch Processing & Caching</i>"]
+    H --> I["Acceptance Testing<br/><i>Explainable Credit Decision</i>"]
 
     A -..->|"Validation"| I
     B -..->|"Verification"| H
@@ -511,7 +511,7 @@ graph TD
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -528,22 +528,16 @@ Please make sure to:
 
 ---
 
-## 📄 License
-
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
-
----
-
 <div align="center">
 
-## 👥 Team — Elite Devs
+## Team — Elite Devs
 
 *Developed for BTK Hackathon 2026*
 
 | Role | Name |
 |------|------|
-| 🏗️ **Lead Backend & AI Architect** | Eyüp Efe Aslan |
-| 🎨 **Frontend Engineer & UI Specialist** | Ceren Aslan |
+| **Lead Backend & AI Architect** | Eyüp Efe Aslan |
+| **Frontend Engineer & UI Specialist** | Ceren Aylin Balaban |
 
 <br/>
 
@@ -551,9 +545,7 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 
 <sub>
 
-**CoreMine Risk** — *Because "The AI said no" is not a legal justification.*
-
-Built with ❤️ and adversarial AI debate.
+**CoreMine Risk**
 
 </sub>
 
